@@ -1,11 +1,11 @@
 package com.example.jpa;
 
 import com.example.querydsl.QuerydslApplication;
-import com.example.querydsl.entity.Customer;
-import com.example.querydsl.entity.User;
-import com.example.querydsl.repository.CustomerRepository;
-import com.example.querydsl.repository.batch.JdbcCustomerBatchRepo;
-import com.example.querydsl.repository.UserRepository;
+import com.example.querydsl.shop.entity.Customer;
+import com.example.querydsl.game.entity.User;
+import com.example.querydsl.shop.repository.CustomerRepository;
+import com.example.querydsl.shop.repository.batch.JdbcCustomerBatchRepo;
+import com.example.querydsl.game.repository.UserRepository;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

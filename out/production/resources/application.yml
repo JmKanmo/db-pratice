@@ -12,7 +12,7 @@ spring:
       password: wnsah12
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: validate
     properties:
       hibernate:
         check_nullability: true
