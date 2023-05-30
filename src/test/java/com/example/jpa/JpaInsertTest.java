@@ -6,7 +6,7 @@ import com.example.querydsl.service.game.entity.User;
 import com.example.querydsl.service.shop.repository.customer.jpa.CustomerRepository;
 import com.example.querydsl.service.shop.repository.customer.batch.JdbcCustomerBatchRepo;
 import com.example.querydsl.service.game.repository.UserRepository;
-import com.example.querydsl.util.BaseUtil;
+import com.example.querydsl.util.RandomUtil;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,10 +38,10 @@ public class JpaInsertTest {
 
         for (int i = 1; i <= 100000; i++) {
             IDENTITYCustomerList.add(Customer.from((long) i,
-                    BaseUtil.createRandomName(),
-                    BaseUtil.createRandomPhoneNumber(),
-                    BaseUtil.createRandomAddress(),
-                    BaseUtil.createRandomBirthDate(), 25000));
+                    RandomUtil.createRandomName(),
+                    RandomUtil.createRandomPhoneNumber(),
+                    RandomUtil.createRandomAddress(),
+                    RandomUtil.createRandomBirthDate(), 25000));
         }
 
         customerRepository.saveAll(IDENTITYCustomerList);
@@ -67,10 +67,10 @@ public class JpaInsertTest {
 
         for (int i = 1; i <= 10000; i++) {
             IDENTITYCustomerList.add(Customer.from((long) i,
-                    BaseUtil.createRandomName(),
-                    BaseUtil.createRandomPhoneNumber(),
-                    BaseUtil.createRandomAddress(),
-                    BaseUtil.createRandomBirthDate(), 2500000));
+                    RandomUtil.createRandomName(),
+                    RandomUtil.createRandomPhoneNumber(),
+                    RandomUtil.createRandomAddress(),
+                    RandomUtil.createRandomBirthDate(), 2500000));
         }
 
         jdbcCustomerBatchRepo.saveAllCustomer(IDENTITYCustomerList, 5000);

@@ -1,6 +1,7 @@
 package com.example.querydsl.service.shop.entity.customer;
 
 import com.example.querydsl.service.shop.entity.review.ProductReview;
+import com.example.querydsl.service.shop.input.customer.CustomerInput;
 import lombok.*;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
@@ -55,5 +56,18 @@ public class Customer {
                 .birth(birth)
                 .build();
         return customer;
+    }
+
+    public static Customer from(CustomerInput customerInput) {
+        return Customer.builder()
+                .id(customerInput.getId())
+                .name(customerInput.getName())
+                .phone(customerInput.getPhone())
+                .address(customerInput.getAddress())
+                .money(customerInput.getMoney())
+                .registerTime(LocalDateTime.now())
+                .updateTime(LocalDateTime.now())
+                .birth(customerInput.getBirth())
+                .build();
     }
 }

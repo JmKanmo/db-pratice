@@ -44,7 +44,6 @@ dependencies {
     annotationProcessor group: 'org.projectlombok', name: 'lombok', version: '1.18.22'
     implementation 'mysql:mysql-connector-java'
     implementation group: 'org.springdoc', name: 'springdoc-openapi-ui', version: '1.6.9'
-    implementation group: 'org.springdoc', name: 'springdoc-openapi-security', version: '1.6.9'
 }
 
 tasks.named('test') {

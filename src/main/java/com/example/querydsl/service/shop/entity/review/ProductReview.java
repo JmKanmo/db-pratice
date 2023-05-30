@@ -2,7 +2,7 @@ package com.example.querydsl.service.shop.entity.review;
 
 import com.example.querydsl.service.shop.entity.customer.Customer;
 import com.example.querydsl.service.shop.entity.product.Product;
-import com.example.querydsl.util.BaseUtil;
+import com.example.querydsl.util.RandomUtil;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -38,8 +38,8 @@ public class ProductReview {
                 .id(id)
                 .content(content)
                 .grade(grade)
-                .customer(Customer.from(customerId, BaseUtil.createRandomName(), BaseUtil.createRandomPhoneNumber(), BaseUtil.createRandomAddress(), BaseUtil.createRandomBirthDate(), 0L))
-                .product(Product.from(productId, BaseUtil.createRandomName(), 0L, 0L, 0L, 0L))
+                .customer(Customer.from(customerId, RandomUtil.createRandomName(), RandomUtil.createRandomPhoneNumber(), RandomUtil.createRandomAddress(), RandomUtil.createRandomBirthDate(), 0L))
+                .product(Product.from(productId, RandomUtil.createRandomName(), 0L, 0L, 0L, 0L))
                 .build();
     }
 }
