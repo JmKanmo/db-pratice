@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 import javax.transaction.Transactional;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,6 +23,7 @@ public class JdbcCustomerBatchRepo {
     public void saveAllCustomer(List<Customer> items, int batchSize) {
         int batchCount = 0;
         List<Customer> subItems = new ArrayList<>();
+
         for (int i = 0; i < items.size(); i++) {
             subItems.add(items.get(i));
             if ((i + 1) % batchSize == 0) {
@@ -40,7 +42,13 @@ public class JdbcCustomerBatchRepo {
                     @Override
                     public void setValues(PreparedStatement ps, int i) throws SQLException {
                         ps.setLong(1, subItems.get(i).getId());
-                        ps.setString(2, subItems.get(i).getName());
+                        ps.setString(2, subItems.get(i).getAddress());
+                        ps.setString(3, subItems.get(i).getBirth());
+                        ps.setLong(4, subItems.get(i).getMoney());
+                        ps.setString(5, subItems.get(i).getName());
+                        ps.setString(6, subItems.get(i).getPhone());
+                        ps.setTimestamp(7, Timestamp.valueOf(subItems.get(i).getRegisterTime()));
+                        ps.setTimestamp(8, Timestamp.valueOf(subItems.get(i).getUpdateTime()));
                     }
 
                     @Override

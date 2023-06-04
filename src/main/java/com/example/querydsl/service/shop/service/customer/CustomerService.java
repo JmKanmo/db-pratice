@@ -21,23 +21,27 @@ public class CustomerService {
 
     @Transactional
     public void autoInsertCustomer(String insertCount, String batchCount) {
-        final List<Customer> IDENTITYCustomerList = new ArrayList<>();
+        final List<Customer> customerList = new ArrayList<>();
 
         long count = customerRepository.count();
 
         for (int i = 1; i <= Integer.parseInt(insertCount); i++) {
-            IDENTITYCustomerList.add(Customer.from(count + i,
+            customerList.add(Customer.from(count + i,
                     RandomUtil.createRandomName(),
                     RandomUtil.createRandomPhoneNumber(),
                     RandomUtil.createRandomAddress(),
                     RandomUtil.createRandomBirthDate(),
-                    566500));
+                    RandomUtil.createRandomNumber(Long.MIN_VALUE, Long.MAX_VALUE)));
         }
-        jdbcCustomerBatchRepo.saveAllCustomer(IDENTITYCustomerList, Integer.parseInt(batchCount));
+        jdbcCustomerBatchRepo.saveAllCustomer(customerList, Integer.parseInt(batchCount));
     }
 
     @Transactional
     public void customInsertCustomer(CustomerInput customerInput) {
         customerRepository.save(Customer.from(customerInput));
+    }
+
+    public long getCustomerCount() {
+        return customerRepository.count();
     }
 }

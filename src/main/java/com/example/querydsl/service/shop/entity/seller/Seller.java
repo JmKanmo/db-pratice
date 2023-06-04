@@ -1,6 +1,7 @@
 package com.example.querydsl.service.shop.entity.seller;
 
 import com.example.querydsl.service.shop.entity.shop.Shop;
+import com.example.querydsl.service.shop.input.seller.SellerInput;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -44,6 +45,16 @@ public class Seller {
                 .id(id)
                 .name(name)
                 .address(address)
+                .registerTime(LocalDateTime.now())
+                .updateTime(LocalDateTime.now())
+                .build();
+    }
+
+    public static Seller from(SellerInput sellerInput) {
+        return Seller.builder()
+                .id(sellerInput.getId())
+                .name(sellerInput.getName())
+                .address(sellerInput.getAddress())
                 .registerTime(LocalDateTime.now())
                 .updateTime(LocalDateTime.now())
                 .build();

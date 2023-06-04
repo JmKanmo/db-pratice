@@ -9,7 +9,7 @@ import java.util.List;
 
 @Slf4j
 public class RandomUtil {
-    public static long createRandomNumber(int begin, int end) {
+    public static long createRandomNumber(long begin, long end) {
         return (long) (Math.random() * end) + begin;
     }
 

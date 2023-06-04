@@ -1,4 +1,4 @@
-package com.example.querydsl.service.shop.input.customer;
+package com.example.querydsl.service.shop.input.seller;
 
 import lombok.Builder;
 import lombok.Data;
@@ -6,9 +6,9 @@ import lombok.Data;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
-@Data
 @Builder
-public class CustomerInput {
+@Data
+public class SellerInput {
     private final Long id;
 
     @NotNull
@@ -17,14 +17,5 @@ public class CustomerInput {
 
     @NotNull
     @NotEmpty
-    private final String phone;
-    private final long money;
-
-    @NotNull
-    @NotEmpty
     private final String address;
-
-    @NotNull
-    @NotEmpty
-    private final String birth;
 }
