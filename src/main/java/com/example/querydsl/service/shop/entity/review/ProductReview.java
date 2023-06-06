@@ -25,6 +25,7 @@ public class ProductReview {
     @Column(name = "product_review_id")
     private Long id;
 
+    @Lob
     private String content;
 
     private long grade; // 1 ~ 5
@@ -48,6 +49,8 @@ public class ProductReview {
                 .id(id)
                 .content(content)
                 .grade(grade)
+                .registerTime(LocalDateTime.now())
+                .updateTime(LocalDateTime.now())
                 .customer(Customer.from(
                         customerId,
                         RandomUtil.createRandomName(),
@@ -70,6 +73,8 @@ public class ProductReview {
                 .id(productReviewInput.getId())
                 .content(productReviewInput.getContent())
                 .grade(productReviewInput.getGrade())
+                .registerTime(LocalDateTime.now())
+                .updateTime(LocalDateTime.now())
                 .customer(Customer.from(
                         productReviewInput.getCustomerId(),
                         RandomUtil.createRandomName(),

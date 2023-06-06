@@ -3,6 +3,7 @@ package com.example.querydsl.util;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.RandomStringUtils;
 
+import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -27,7 +28,7 @@ public class RandomUtil {
      * Random 문자 생성 (https://taetae0079.tistory.com/22)
      */
     public static String createRandomString(int length) {
-        return RandomStringUtils.random(length);
+        return RandomStringUtils.randomAlphabetic(length);
     }
 
     public static String createRamonString(String str, int length) {
@@ -100,7 +101,7 @@ public class RandomUtil {
                     "드론", "리빙", "우주", "영화/드라마", "도박",
                     "편의점", "인터넷방송", "사육용품", "파충류", "굿즈", "캐릭터", "토이", "디지털");
             Collections.shuffle(카테고리);
-            String text = 카테고리.get(0);
+            String text = 카테고리.get(0) + "/" + System.currentTimeMillis();
             return text;
         } catch (Exception e) {
             log.error(e.getMessage() + e);

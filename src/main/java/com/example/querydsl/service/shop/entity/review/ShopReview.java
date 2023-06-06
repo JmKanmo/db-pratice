@@ -25,6 +25,7 @@ public class ShopReview {
     @Column(name = "shop_review_id")
     private Long id;
 
+    @Lob
     private String content;
 
     private long grade; // 1 ~ 5
@@ -72,6 +73,8 @@ public class ShopReview {
                 .id(shopReviewInput.getId())
                 .content(shopReviewInput.getContent())
                 .grade(shopReviewInput.getGrade())
+                .registerTime(LocalDateTime.now())
+                .updateTime(LocalDateTime.now())
                 .customer(Customer.from(shopReviewInput.getCustomerId()
                         , RandomUtil.createRandomName()
                         , RandomUtil.createRandomPhoneNumber()
