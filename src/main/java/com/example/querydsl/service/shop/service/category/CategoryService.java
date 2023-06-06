@@ -26,7 +26,7 @@ public class CategoryService {
 
         for (int i = 1; i <= Integer.parseInt(insertCount); i++) {
             categoryList.add(Category.from(categoryCount + i
-                    , RandomUtil.createRandomName()));
+                    , RandomUtil.createRandomCategoryName()));
         }
         jdbcCategoryBatchRepo.saveAllCustomer(categoryList, Integer.parseInt(batchCount));
     }

@@ -56,11 +56,11 @@ public class ShopReview {
                         , RandomUtil.createRandomPhoneNumber()
                         , RandomUtil.createRandomAddress()
                         , RandomUtil.createRandomBirthDate()
-                        , RandomUtil.createRandomNumber(Long.MIN_VALUE, Long.MAX_VALUE)))
+                        , RandomUtil.createRandomMoney()))
                 .shop(Shop.from(
                         shopId
                         , RandomUtil.createRandomName()
-                        , RandomUtil.createRandomNumber(Long.MIN_VALUE, Long.MAX_VALUE)
+                        , RandomUtil.createRandomMoney()
                         , RandomUtil.createRandomString(1000)
                         , sellerId
                 ))
@@ -77,7 +77,7 @@ public class ShopReview {
                         , RandomUtil.createRandomPhoneNumber()
                         , RandomUtil.createRandomAddress()
                         , RandomUtil.createRandomBirthDate()
-                        , RandomUtil.createRandomNumber(Long.MIN_VALUE, Long.MAX_VALUE)))
+                        , RandomUtil.createRandomMoney()))
                 .build();
     }
 }

@@ -61,8 +61,15 @@ public class Product {
                 .count(count)
                 .registerTime(LocalDateTime.now())
                 .updateTime(LocalDateTime.now())
-                .category(Category.from(categoryId, RandomUtil.createRandomName()))
-                .shop(Shop.from(shopId, RandomUtil.createRandomName(), 0L, RandomUtil.createRandomString(10), 0L))
+                .category(Category.from(
+                        categoryId
+                        , RandomUtil.createRandomCategoryName()))
+                .shop(Shop.from(
+                        shopId,
+                        RandomUtil.createRandomNickName()
+                        , RandomUtil.createRandomMoney()
+                        , RandomUtil.createRandomString(10)
+                        , 0L))
                 .build();
     }
 
@@ -74,8 +81,8 @@ public class Product {
                 .count(productInput.getCount())
                 .shop(Shop.from(
                         productInput.getShopId()
-                        , RandomUtil.createRandomName()
-                        , RandomUtil.createRandomNumber(Long.MIN_VALUE, Long.MAX_VALUE)
+                        , RandomUtil.createRandomNickName()
+                        , RandomUtil.createRandomMoney()
                         , RandomUtil.createRandomString(1000)
                         , productInput.getSellerId()))
                 .build();

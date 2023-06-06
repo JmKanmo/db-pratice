@@ -40,7 +40,7 @@ public class ShopReviewService {
             shopReviewList.add(ShopReview.from(
                     shopReviewCount + i
                     , RandomUtil.createRandomString(1000)
-                    , RandomUtil.createRandomNumber(Long.MIN_VALUE, Long.MAX_VALUE)
+                    , RandomUtil.createRandomNumber(1, 5)
                     , customerNumber
                     , shopNumber
                     , sellerNumber));

@@ -31,7 +31,7 @@ public class CustomerService {
                     RandomUtil.createRandomPhoneNumber(),
                     RandomUtil.createRandomAddress(),
                     RandomUtil.createRandomBirthDate(),
-                    RandomUtil.createRandomNumber(Long.MIN_VALUE, Long.MAX_VALUE)));
+                    RandomUtil.createRandomMoney()));
         }
         jdbcCustomerBatchRepo.saveAllCustomer(customerList, Integer.parseInt(batchCount));
     }

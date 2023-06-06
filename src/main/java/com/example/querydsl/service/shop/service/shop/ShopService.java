@@ -30,8 +30,8 @@ public class ShopService {
 
         for (int i = 1; i <= Integer.parseInt(insertCount); i++) {
             shopList.add(Shop.from(shopCount + i
-                    , RandomUtil.createRandomName(),
-                    RandomUtil.createRandomNumber(Long.MIN_VALUE, Long.MAX_VALUE),
+                    , RandomUtil.createRandomNickName(),
+                    RandomUtil.createRandomMoney(),
                     RandomUtil.createRandomString(1000),
                     sellerNumber));
         }

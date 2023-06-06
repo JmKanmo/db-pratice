@@ -44,7 +44,7 @@ public class ProductReviewService {
             productReviewList.add(ProductReview.from(
                     productReviewCount + i
                     , RandomUtil.createRandomString(1000)
-                    , RandomUtil.createRandomNumber(Long.MIN_VALUE, Long.MAX_VALUE)
+                    , RandomUtil.createRandomNumber(1, 5)
                     , customerNumber
                     , productNumber
                     , categoryNumber

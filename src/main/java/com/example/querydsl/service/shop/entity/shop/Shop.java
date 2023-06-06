@@ -61,7 +61,7 @@ public class Shop {
                 .name(name)
                 .price(price)
                 .description(description)
-                .seller(Seller.from(sellerId, RandomUtil.createRandomName(), RandomUtil.createRandomAddress()))
+                .seller(Seller.from(sellerId, RandomUtil.createRandomNickName(), RandomUtil.createRandomAddress()))
                 .registerTime(LocalDateTime.now())
                 .updateTime(LocalDateTime.now())
                 .build();

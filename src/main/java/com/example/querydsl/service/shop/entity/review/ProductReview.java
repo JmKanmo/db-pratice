@@ -54,12 +54,12 @@ public class ProductReview {
                         RandomUtil.createRandomPhoneNumber(),
                         RandomUtil.createRandomAddress(),
                         RandomUtil.createRandomBirthDate(),
-                        RandomUtil.createRandomNumber(Long.MIN_VALUE, Long.MAX_VALUE)))
+                        RandomUtil.createRandomMoney()))
                 .product(Product.from(
                         productId,
-                        RandomUtil.createRandomName(),
-                        RandomUtil.createRandomNumber(Long.MIN_VALUE, Long.MAX_VALUE),
-                        RandomUtil.createRandomNumber(Long.MIN_VALUE, Long.MAX_VALUE),
+                        RandomUtil.createRandomNickName(),
+                        RandomUtil.createRandomMoney(),
+                        RandomUtil.createRandomCount(),
                         categoryId,
                         shopId))
                 .build();
@@ -76,13 +76,13 @@ public class ProductReview {
                         RandomUtil.createRandomPhoneNumber(),
                         RandomUtil.createRandomAddress(),
                         RandomUtil.createRandomBirthDate(),
-                        RandomUtil.createRandomNumber(Long.MIN_VALUE, Long.MAX_VALUE)
+                        RandomUtil.createRandomMoney()
                 ))
                 .product(Product.from(
                         productReviewInput.getProductId(),
-                        RandomUtil.createRandomName(),
-                        RandomUtil.createRandomNumber(Long.MIN_VALUE, Long.MAX_VALUE),
-                        RandomUtil.createRandomNumber(Long.MIN_VALUE, Long.MAX_VALUE),
+                        RandomUtil.createRandomNickName(),
+                        RandomUtil.createRandomMoney(),
+                        RandomUtil.createRandomCount(),
                         productReviewInput.getCategoryId(),
                         productReviewInput.getShopId()
                 ))

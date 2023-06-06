@@ -9,8 +9,18 @@ import java.util.List;
 
 @Slf4j
 public class RandomUtil {
+    public static final String 알수없음 = "알수없음";
+
     public static long createRandomNumber(long begin, long end) {
         return (long) (Math.random() * end) + begin;
+    }
+
+    public static long createRandomCount() {
+        return createRandomNumber(0L, 99999999999L);
+    }
+
+    public static long createRandomMoney() {
+        return createRandomNumber(0L, 9999999999999999L);
     }
 
     /**
@@ -46,7 +56,7 @@ public class RandomUtil {
             return first.get(0) + names.get(0) + names.get(1);
         } catch (Exception e) {
             log.error(e.getMessage() + "," + e);
-            return createRandomString(5);
+            return 알수없음;
         }
     }
 
@@ -78,7 +88,23 @@ public class RandomUtil {
             return text + "/" + 월.get(0) + "/" + 일.get(0);
         } catch (Exception e) {
             log.error(e.getMessage() + e);
-            return createRandomString(4) + "/" + createRandomString(2) + "/" + createRandomString(2);
+            return 알수없음;
+        }
+    }
+
+    public static String createRandomCategoryName() {
+        try {
+            List<String> 카테고리 = Arrays.asList("패션의류", "뷰티", "출산/유아용", "주방용품", "생활용품"
+                    , "홈인테리어", "가전디지털", "스포츠/레저", "자동자용품", "도서/음반/DVD", "완구/취미"
+                    , "문구/오피스", "반려동물용품", "헬스/건강식품", "여행/티켓", "테마관", "성인용품", "잡지",
+                    "드론", "리빙", "우주", "영화/드라마", "도박",
+                    "편의점", "인터넷방송", "사육용품", "파충류", "굿즈", "캐릭터", "토이", "디지털");
+            Collections.shuffle(카테고리);
+            String text = 카테고리.get(0);
+            return text;
+        } catch (Exception e) {
+            log.error(e.getMessage() + e);
+            return "알수없음";
         }
     }
 
@@ -94,7 +120,7 @@ public class RandomUtil {
             return text;
         } catch (Exception e) {
             log.error(e.getMessage() + e);
-            return createRandomString(10);
+            return 알수없음;
         }
     }
 
@@ -147,11 +173,11 @@ public class RandomUtil {
             Collections.shuffle(자치구);
             Collections.shuffle(시);
             Collections.shuffle(군);
-            String text = 행정구역.get(0) + " " + 자치구 + " " + 시 + " " + 군.get(0);
+            String text = 행정구역.get(0) + " " + 자치구.get(0) + " " + 시.get(0) + " " + 군.get(0);
             return text;
         } catch (Exception e) {
             log.error(e.getMessage() + e);
-            return createRandomString(25);
+            return 알수없음;
         }
     }
 
@@ -164,7 +190,7 @@ public class RandomUtil {
             return phoneNumber.get(0);
         } catch (Exception e) {
             log.error(e.getMessage() + e);
-            return createRandomString(3) + "-" + createRandomString(4) + "-" + createRandomString(4);
+            return 알수없음;
         }
     }
 

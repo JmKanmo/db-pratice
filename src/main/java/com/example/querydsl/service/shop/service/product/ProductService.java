@@ -35,9 +35,9 @@ public class ProductService {
         for (int i = 1; i <= Integer.parseInt(insertCount); i++) {
             productList.add(Product.from(
                     productCount + i
-                    , RandomUtil.createRandomName(),
-                    RandomUtil.createRandomNumber(Long.MIN_VALUE, Long.MAX_VALUE),
-                    RandomUtil.createRandomNumber(Long.MIN_VALUE, Long.MAX_VALUE),
+                    , RandomUtil.createRandomNickName(),
+                    RandomUtil.createRandomMoney(),
+                    RandomUtil.createRandomCount(),
                     categoryNumber,
                     shopNumber));
         }
