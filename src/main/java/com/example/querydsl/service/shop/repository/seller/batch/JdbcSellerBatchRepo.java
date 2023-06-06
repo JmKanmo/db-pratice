@@ -1,8 +1,6 @@
 package com.example.querydsl.service.shop.repository.seller.batch;
 
-import com.example.querydsl.service.shop.entity.customer.Customer;
 import com.example.querydsl.service.shop.entity.seller.Seller;
-import com.example.querydsl.service.shop.repository.customer.sql.CustomerSql;
 import com.example.querydsl.service.shop.repository.seller.sql.SellerSql;
 import lombok.RequiredArgsConstructor;
 import org.springframework.jdbc.core.BatchPreparedStatementSetter;

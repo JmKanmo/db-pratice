@@ -4,6 +4,7 @@ package com.example.querydsl.service.shop.entity.shop;
 import com.example.querydsl.service.shop.entity.product.Product;
 import com.example.querydsl.service.shop.entity.review.ShopReview;
 import com.example.querydsl.service.shop.entity.seller.Seller;
+import com.example.querydsl.service.shop.input.shop.ShopInput;
 import com.example.querydsl.util.RandomUtil;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -63,6 +64,21 @@ public class Shop {
                 .seller(Seller.from(sellerId, RandomUtil.createRandomName(), RandomUtil.createRandomAddress()))
                 .registerTime(LocalDateTime.now())
                 .updateTime(LocalDateTime.now())
+                .build();
+    }
+
+    public static Shop from(ShopInput shopInput) {
+        return Shop.builder()
+                .id(shopInput.getId())
+                .name(shopInput.getName())
+                .price(shopInput.getPrice())
+                .description(shopInput.getDescription())
+                .registerTime(LocalDateTime.now())
+                .updateTime(LocalDateTime.now())
+                .seller(Seller.from(
+                        shopInput.getSellerId(),
+                        RandomUtil.createRandomName(),
+                        RandomUtil.createRandomAddress()))
                 .build();
     }
 }

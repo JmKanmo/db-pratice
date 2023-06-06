@@ -3,6 +3,7 @@ package com.example.querydsl.service.shop.entity.product;
 import com.example.querydsl.service.shop.entity.review.ProductReview;
 import com.example.querydsl.service.shop.entity.shop.Shop;
 import com.example.querydsl.service.shop.entity.category.Category;
+import com.example.querydsl.service.shop.input.product.ProductInput;
 import com.example.querydsl.util.RandomUtil;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -62,6 +63,21 @@ public class Product {
                 .updateTime(LocalDateTime.now())
                 .category(Category.from(categoryId, RandomUtil.createRandomName()))
                 .shop(Shop.from(shopId, RandomUtil.createRandomName(), 0L, RandomUtil.createRandomString(10), 0L))
+                .build();
+    }
+
+    public static Product from(ProductInput productInput) {
+        return Product.builder()
+                .id(productInput.getId())
+                .name(productInput.getName())
+                .price(productInput.getPrice())
+                .count(productInput.getCount())
+                .shop(Shop.from(
+                        productInput.getShopId()
+                        , RandomUtil.createRandomName()
+                        , RandomUtil.createRandomNumber(Long.MIN_VALUE, Long.MAX_VALUE)
+                        , RandomUtil.createRandomString(1000)
+                        , productInput.getSellerId()))
                 .build();
     }
 }

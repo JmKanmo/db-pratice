@@ -22,8 +22,6 @@ public class SellerService {
     @Transactional
     public void autoInsertSeller(String insertCount, String batchCount) {
         final List<Seller> sellerList = new ArrayList<>();
-
-
         long count = sellerRepository.count();
 
         for (int i = 1; i <= Integer.parseInt(insertCount); i++) {

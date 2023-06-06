@@ -1,6 +1,7 @@
 package com.example.querydsl.service.shop.entity.category;
 
 import com.example.querydsl.service.shop.entity.product.Product;
+import com.example.querydsl.service.shop.input.category.CategoryInput;
 import lombok.*;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
@@ -38,6 +39,15 @@ public class Category {
         return Category.builder()
                 .id(id)
                 .name(name)
+                .registerTime(LocalDateTime.now())
+                .updatedTime(LocalDateTime.now())
+                .build();
+    }
+
+    public static Category from(CategoryInput categoryInput) {
+        return Category.builder()
+                .id(categoryInput.getId())
+                .name(categoryInput.getName())
                 .registerTime(LocalDateTime.now())
                 .updatedTime(LocalDateTime.now())
                 .build();

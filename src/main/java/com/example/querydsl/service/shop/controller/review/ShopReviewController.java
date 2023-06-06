@@ -1,7 +1,7 @@
-package com.example.querydsl.service.shop.controller.category;
+package com.example.querydsl.service.shop.controller.review;
 
-import com.example.querydsl.service.shop.input.category.CategoryInput;
-import com.example.querydsl.service.shop.service.category.CategoryService;
+import com.example.querydsl.service.shop.input.review.ShopReviewInput;
+import com.example.querydsl.service.shop.service.review.ShopReviewService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
@@ -16,19 +16,19 @@ import javax.validation.Valid;
 
 @RestController
 @RequiredArgsConstructor
-public class CategoryController {
-    private final CategoryService categoryService;
+public class ShopReviewController {
+    private final ShopReviewService shopReviewService;
 
-    @Operation(summary = "category auto insert api", description = "category auto insert api")
+    @Operation(summary = "shop review auto insert api", description = "shop review auto insert api")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "success"),
             @ApiResponse(responseCode = "500", description = "fail")
     })
-    @PostMapping("/insert/auto/category")
-    public ResponseEntity<?> batchCategoryInsert(@RequestParam(value = "insertCount", defaultValue = "0", required = false) String insertCount,
-                                                 @RequestParam(value = "batchCount", defaultValue = "0", required = false) String batchCount) {
+    @PostMapping("/insert/auto/shop-review")
+    public ResponseEntity<?> batchShopReviewInsert(@RequestParam(value = "insertCount", defaultValue = "0", required = false) String insertCount,
+                                                   @RequestParam(value = "batchCount", defaultValue = "0", required = false) String batchCount) {
         try {
-            categoryService.autoInsertShop(insertCount, batchCount);
+            shopReviewService.autoInsertShopReview(insertCount, batchCount);
             return ResponseEntity.ok(200);
         } catch (Exception e) {
             e.printStackTrace();
@@ -36,14 +36,14 @@ public class CategoryController {
         }
     }
 
-    @Operation(summary = "category custom insert api", description = "category custom insert api")
+    @Operation(summary = "shop review custom insert api", description = "shop review custom insert api")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "success"),
             @ApiResponse(responseCode = "500", description = "fail")
     })
-    @PostMapping("/insert/custom/Category")
-    public ResponseEntity<?> customShopInsert(@RequestBody @Valid CategoryInput categoryInput) {
-        categoryService.customInsertShop(categoryInput);
+    @PostMapping("/insert/custom/shop-review")
+    public ResponseEntity<?> customShopReviewInsert(@RequestBody @Valid ShopReviewInput shopReviewInput) {
+        shopReviewService.customInsertShopReview(shopReviewInput);
         return ResponseEntity.ok(200);
     }
 }

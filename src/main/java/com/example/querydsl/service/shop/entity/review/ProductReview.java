@@ -2,13 +2,17 @@ package com.example.querydsl.service.shop.entity.review;
 
 import com.example.querydsl.service.shop.entity.customer.Customer;
 import com.example.querydsl.service.shop.entity.product.Product;
+import com.example.querydsl.service.shop.input.review.ProductReviewInput;
 import com.example.querydsl.util.RandomUtil;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Entity
 @Data
@@ -33,13 +37,55 @@ public class ProductReview {
     @JoinColumn(name = "product_id")
     private Product product;
 
-    public static ProductReview from(long id, String content, long grade, long customerId, long productId) {
+    @CreatedDate
+    private LocalDateTime registerTime;
+
+    @LastModifiedDate
+    private LocalDateTime updateTime;
+
+    public static ProductReview from(long id, String content, long grade, long customerId, long productId, long categoryId, long shopId) {
         return ProductReview.builder()
                 .id(id)
                 .content(content)
                 .grade(grade)
-                .customer(Customer.from(customerId, RandomUtil.createRandomName(), RandomUtil.createRandomPhoneNumber(), RandomUtil.createRandomAddress(), RandomUtil.createRandomBirthDate(), 0L))
-                .product(Product.from(productId, RandomUtil.createRandomName(), 0L, 0L, 0L, 0L))
+                .customer(Customer.from(
+                        customerId,
+                        RandomUtil.createRandomName(),
+                        RandomUtil.createRandomPhoneNumber(),
+                        RandomUtil.createRandomAddress(),
+                        RandomUtil.createRandomBirthDate(),
+                        RandomUtil.createRandomNumber(Long.MIN_VALUE, Long.MAX_VALUE)))
+                .product(Product.from(
+                        productId,
+                        RandomUtil.createRandomName(),
+                        RandomUtil.createRandomNumber(Long.MIN_VALUE, Long.MAX_VALUE),
+                        RandomUtil.createRandomNumber(Long.MIN_VALUE, Long.MAX_VALUE),
+                        categoryId,
+                        shopId))
+                .build();
+    }
+
+    public static ProductReview from(ProductReviewInput productReviewInput) {
+        return ProductReview.builder()
+                .id(productReviewInput.getId())
+                .content(productReviewInput.getContent())
+                .grade(productReviewInput.getGrade())
+                .customer(Customer.from(
+                        productReviewInput.getCustomerId(),
+                        RandomUtil.createRandomName(),
+                        RandomUtil.createRandomPhoneNumber(),
+                        RandomUtil.createRandomAddress(),
+                        RandomUtil.createRandomBirthDate(),
+                        RandomUtil.createRandomNumber(Long.MIN_VALUE, Long.MAX_VALUE)
+                ))
+                .product(Product.from(
+                        productReviewInput.getProductId(),
+                        RandomUtil.createRandomName(),
+                        RandomUtil.createRandomNumber(Long.MIN_VALUE, Long.MAX_VALUE),
+                        RandomUtil.createRandomNumber(Long.MIN_VALUE, Long.MAX_VALUE),
+                        productReviewInput.getCategoryId(),
+                        productReviewInput.getShopId()
+                ))
                 .build();
     }
 }
