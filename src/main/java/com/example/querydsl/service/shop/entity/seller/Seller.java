@@ -20,6 +20,10 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@Table(name = "seller", indexes = {
+        @Index(name = "seller_idx_name", columnList = "name"),
+        @Index(name = "seller_idx_address", columnList = "address")
+})
 public class Seller {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

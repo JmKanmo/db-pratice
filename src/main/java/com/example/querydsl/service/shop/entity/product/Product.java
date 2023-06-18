@@ -23,6 +23,11 @@ import java.util.List;
 @Builder
 @AllArgsConstructor
 @RequiredArgsConstructor
+@Table(name = "product", indexes = {
+        @Index(name = "product_idx_name", columnList = "name"),
+        @Index(name = "product_idx_price", columnList = "price"),
+        @Index(name = "product_idx_count", columnList = "count")
+})
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

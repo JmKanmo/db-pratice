@@ -17,13 +17,17 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@Table(name = "customer", indexes = {
+        @Index(name = "customer_idx_name", columnList = "name"),
+        @Index(name = "customer_idx_phone", columnList = "phone"),
+        @Index(name = "customer_idx_address", columnList = "address")
+})
 public class Customer {
     @Id
     @Column(name = "customer_id", updatable = false)
     @EqualsAndHashCode.Include
     private Long id;
 
-    @Column
     private String name;
 
     private String phone;

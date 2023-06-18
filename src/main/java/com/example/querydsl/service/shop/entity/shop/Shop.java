@@ -24,6 +24,9 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@Table(name = "shop", indexes = {
+        @Index(name = "shop_idx_name", columnList = "name")
+})
 public class Shop {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -33,6 +36,8 @@ public class Shop {
     private String name;
 
     private long price;
+
+    // TODO Menu 테이블 or 자료구조 만들고 해당 메뉴에 대한 상세 데이터 (클래스) shop 마다 정의 및 저장 (whatap npm topology 소스코드 참조)
 
     @Lob
     private String description;

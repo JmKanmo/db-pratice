@@ -49,8 +49,8 @@ logging:
     max-history: 30
 
   level:
-    root: INFO
-    com.service: INFO
+    root: ERROR
+    com.service: ERROR
 
     org.hibernate:
 #      SQL: debug

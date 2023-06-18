@@ -19,6 +19,10 @@ import java.time.LocalDateTime;
 @Builder
 @AllArgsConstructor
 @RequiredArgsConstructor
+@Table(name = "product_review", indexes = {
+        @Index(name = "product_review_idx_content", columnList = "content"),
+        @Index(name = "product_review_idx_grade", columnList = "grade")
+})
 public class ProductReview {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
